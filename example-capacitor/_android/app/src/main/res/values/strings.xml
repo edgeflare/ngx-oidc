@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="app_name">CapDemo</string>
+  <string name="title_activity_main">CapDemo</string>
+  <string name="package_name">org.example.capdemo</string>
+  <string name="custom_url_scheme">org.example.capdemo</string>
+</resources>

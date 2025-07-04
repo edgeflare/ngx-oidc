@@ -1,0 +1,21 @@
+<main>
+  <section>
+    <div>
+      <nav>
+        <button routerLink="/" routerLinkActive="active">Home</button>
+        <button routerLink="../oidc-profile" routerLinkActive="active">Account</button>
+      </nav>
+      <div>
+        <h1>Authenticated: {{ isAuthenticated() }}</h1>
+        <p>Angular Auth demo using <a href="https://github.com/edgeflare/ngx-oidc" target="_blank">ngx-oidc</a>
+      </div>
+    </div>
+    <nav>
+      <button (click)="signinRedirect()">signinRedirect</button>
+      <button (click)="signinSilent()">signinSilent</button>
+      <button (click)="signinPopup()">signinPopup</button>
+      <button (click)="signoutRedirect()">signoutRedirect</button>
+      <button (click)="signoutPopup()">signoutPopup</button>
+    </nav>
+  </section>
+</main>

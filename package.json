@@ -1,0 +1,50 @@
+{
+  "name": "ngx-oidc",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/cdk": "^20.0.5",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/material": "^20.0.5",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@capacitor/android": "^7.4.1",
+    "@capacitor/app": "^7.0.1",
+    "@capacitor/browser": "^7.0.1",
+    "@capacitor/core": "^7.4.1",
+    "@capacitor/ios": "^7.4.1",
+    "@capacitor/preferences": "^7.0.1",
+    "@edgeflare/ngx-oidc": "^0.0.1",
+    "@edgeflare/ngx-oidc-capacitor": "^0.0.2",
+    "oidc-client-ts": "^3.3.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.5",
+    "@angular/cli": "^20.0.5",
+    "@angular/compiler-cli": "^20.0.0",
+    "@capacitor/cli": "^7.4.1",
+    "ng-packagr": "^20.0.0",
+    "typescript": "~5.8.2"
+  }
+}

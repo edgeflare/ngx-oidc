@@ -1,0 +1,54 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "paths": {
+      "ngx-oidc": [
+        "./dist/ngx-oidc"
+      ],
+      "ngx-oidc-capacitor": [
+        "./dist/ngx-oidc-capacitor"
+      ]
+    },
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./ngx-oidc/tsconfig.lib.json"
+    },
+    {
+      "path": "./ngx-oidc/tsconfig.spec.json"
+    },
+    {
+      "path": "./ngx-oidc-capacitor/tsconfig.lib.json"
+    },
+    {
+      "path": "./ngx-oidc-capacitor/tsconfig.spec.json"
+    },
+    {
+      "path": "./example/tsconfig.app.json"
+    },
+    {
+      "path": "./example-capacitor/tsconfig.app.json"
+    }
+  ]
+}

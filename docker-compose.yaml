@@ -1,0 +1,60 @@
+services:
+  db-postgresql:
+    image: docker.io/bitnami/postgresql:17.4.0
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespw
+      POSTGRES_DB: main
+      POSTGRESQL_WAL_LEVEL: logical
+    ports:
+    - 5432:5432
+    volumes:
+    - db-postgresql:/bitnami/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  iam-dex:
+    image: ghcr.io/edgeflare/dex:latest
+    restart: always
+    command: 'dex serve /config.yaml'
+    # environment:
+    #   DEX_CUSTOM_CLAIMS_STATIC: '{"policy": {"pgrole": "authn"}}'
+    ports:
+    - 5556:5556
+    volumes:
+    - $PWD/dex-config.yaml:/config.yaml:rw,Z
+    depends_on:
+      db-postgresql:
+        condition: service_healthy
+
+  # iam-keycloak:
+  #   image: docker.io/keycloak/keycloak
+  #   restart: always
+  #   command: 'start'
+  #   environment:
+  #     KC_BOOTSTRAP_ADMIN_USERNAME: admin
+  #     KC_BOOTSTRAP_ADMIN_PASSWORD: changeme
+  #     KC_CACHE: ispn
+  #     KC_DB: postgres
+  #     KC_DB_USERNAME: postgres
+  #     KC_DB_PASSWORD: postgrespw
+  #     KC_DB_URL_PORT: "5432"
+  #     KC_DB_URL_DATABASE: main
+  #     KC_DB_SCHEMA: public
+  #     KC_DB_URL_HOST: db-postgresql
+  #     KC_HOSTNAME: http://localhost:8080
+  #     KC_HTTP_ENABLED: "true"
+  #     KC_HTTP_PORT: "8080"
+  #     KC_PROXY: edge
+  #   ports:
+  #   - 8080:8080
+  #   depends_on:
+  #     db-postgresql:
+  #       condition: service_healthy
+
+volumes:
+  db-postgresql:
